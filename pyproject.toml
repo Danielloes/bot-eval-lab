@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bot-eval-lab"
+version = "1.0.0"
+description = "Laboratório local de regressões em assistentes de atendimento em português"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+semantic = ["sentence-transformers>=3,<6"]
+
+[project.scripts]
+bot-eval = "bot_eval_lab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["bot_eval_lab*"]
+
+[tool.setuptools.package-data]
+bot_eval_lab = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
