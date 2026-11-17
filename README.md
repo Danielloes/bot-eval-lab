@@ -2,6 +2,8 @@
 
 Um laboratório local que compara versões de um assistente de atendimento em português e encontra regressões antes de uma atualização.
 
+[Repositório público](https://github.com/Danielloes/bot-eval-lab) · [GitHub Actions validado em Windows e Ubuntu](https://github.com/Danielloes/bot-eval-lab/actions/runs/44007699358)
+
 Projeto de portfólio para uma entrevista de estágio: Python, SQLite, pytest, CLI, recuperação de políticas e avaliação rastreável. **Loja Aurora, conversas, pedidos, prazos e regras são fictícios.** O projeto não tem vínculo oficial com a Blip e não realiza operações comerciais.
 
 ## Demo em um comando
@@ -246,7 +248,7 @@ Os dados são pequenos, sintéticos e escritos junto com o domínio do exemplo. 
 
 O contexto usa regras simples e aliases, não NLU robusto: números por extenso, respostas implícitas como “sim”, mudanças de assunto ambíguas, várias intenções simultâneas e contradições complexas não são totalmente tratados. Respostas determinísticas facilitam explicação e repetição, mas não provam empatia, clareza, segurança geral ou fidelidade ao texto de uma política arbitrária. Os modelos de resposta e regras devem evoluir junto com políticas comerciais; mudar somente o texto de uma política não reprograma a decisão. A evidência mede **seleção de IDs**, não qualidade textual.
 
-A candidata defeituosa é um recurso didático, não uma versão indicada para uso. A semântica é um experimento separado e pode melhorar, empatar ou piorar. O custo do primeiro download não está nas latências. O workflow foi configurado para Linux e Windows, Python 3.11/3.12; executar localmente no Windows não equivale a já ter executado o GitHub Actions remoto.
+A candidata defeituosa é um recurso didático, não uma versão indicada para uso. A semântica é um experimento separado e pode melhorar, empatar ou piorar. O custo do primeiro download não está nas latências. O workflow foi executado com sucesso nas quatro combinações de Ubuntu/Windows e Python 3.11/3.12; o registro remoto está em [VALIDATION.md](VALIDATION.md).
 
 ### Extensão futura para a Blip
 

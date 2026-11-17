@@ -88,8 +88,16 @@ Uma conferência adicional, sem rede e com `local_only=True`, carregou o modelo 
 
 ## Limites do que foi validado
 
-- O **GitHub Actions remoto não foi executado**, pois não foi criado nem publicado um repositório remoto. O workflow está configurado para Python 3.11/3.12 em Ubuntu e Windows; a validação local foi em Windows com Python 3.14.10.
-- Linux e macOS não foram executados neste ambiente.
+- O **GitHub Actions remoto foi executado após a publicação**, com sucesso nas quatro combinações de Python 3.11/3.12 em Ubuntu e Windows. A validação local original foi em Windows com Python 3.14.10.
+- macOS não foi executado; Ubuntu foi validado no GitHub Actions.
 - Não há integração real com a Blip, dados de clientes ou operação comercial; o adaptador é uma proposta de evolução no README.
 - Uma rodada de latências em 18 casos não permite inferir desempenho de produção. As duas referências lexicais das tabelas pertencem a execuções diferentes; seus tempos variam.
 - Os exemplos são um registro local e sintético, não uma avaliação cega independente nem uma prova de qualidade geral do atendimento.
+
+## Publicação no GitHub — 17/11/2026
+
+O projeto foi publicado pelo navegador no repositório público [Danielloes/bot-eval-lab](https://github.com/Danielloes/bot-eval-lab).
+
+A [primeira execução remota](https://github.com/Danielloes/bot-eval-lab/actions/runs/44007699358), referente ao commit `5f3c6c3b7d337fa600eed9ea0be19eea59b67db0`, terminou com **Success**, **4 jobs concluídos** e **4 relatórios de demo como artefatos**, em 37 segundos. Foram validadas as combinações Ubuntu/Windows com Python 3.11/3.12. O log de Ubuntu/Python 3.11 registrou **49 passed in 1.69s**.
+
+O serviço exibiu avisos de atualização do runtime das Actions e da imagem Ubuntu, sem falha nos jobs. O código do projeto e os critérios de avaliação não foram alterados para a publicação.
