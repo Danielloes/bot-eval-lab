@@ -1,0 +1,29 @@
+name: Tests offline
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Instalar apenas dependências básicas de desenvolvimento
+        run: python -m pip install -e ".[dev]"
+      - name: Testar sem modelo ou rede do Hugging Face
+        env:
+          HF_HUB_OFFLINE: "1"
+          TRANSFORMERS_OFFLINE: "1"
+          PYTHONUTF8: "1"
+        run: python -m pytest -q
+      - name: Gerar demo offline (a regressão é esperada, sem --check)
+        run: python -m bot_eval_lab demo --output reports/demo.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: demo-${{ matrix.os }}-${{ matrix.python }}
+          path: reports/demo.html
