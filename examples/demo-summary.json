@@ -1,84 +1,82 @@
 {
   "reference": {
-    "assistant_version": "bot-eval-lab-1.0.0/rules-1.0",
-    "evaluator_version": "checks-1.0",
-    "dataset_hash": "5a78d57decd3092f637f0772604e9cf77ada84321bfea4e8bcd6b0eabb765e32",
-    "policy_hash": "6d9c7ed2cd06f356568c05949348bbf84c8145d190f50c16a23948d735c2f1c0",
     "id": "50b34de598f94b859e02592dd26c4bcd",
     "created_at": "2026-11-17T02:38:07.757979+00:00",
+    "assistant_version": "bot-eval-lab-1.0.0/rules-1.0",
+    "evaluator_version": "checks-1.0",
     "config": {
+      "strategy": "lexical",
       "ranking": "overlap-idf-title2-v1",
+      "index_filter": "all",
       "top_k": 4,
       "warmup": "one fixed delivery question",
       "environment": {
         "python": "3.14.10",
         "platform": "Windows-11-10.0.26200-SP0",
         "packages": {}
-      },
-      "strategy": "lexical",
-      "index_filter": "all"
+      }
     },
     "metrics": {
       "passed": {
         "passed": 18,
         "total": 18,
-        "rate": 1
+        "rate": 1.0
       },
       "action": {
         "passed": 18,
         "total": 18,
-        "rate": 1
+        "rate": 1.0
       },
       "by_action": {
         "answer": {
           "passed": 6,
           "total": 6,
-          "rate": 1
+          "rate": 1.0
         },
         "clarify": {
           "passed": 6,
           "total": 6,
-          "rate": 1
+          "rate": 1.0
         },
         "handoff": {
           "passed": 6,
           "total": 6,
-          "rate": 1
+          "rate": 1.0
         }
       },
       "evidence_retrieved": {
         "passed": 12,
         "total": 12,
-        "rate": 1
+        "rate": 1.0
       },
       "evidence_used": {
         "passed": 12,
         "total": 12,
-        "rate": 1
+        "rate": 1.0
       },
       "critical_failures": 0,
       "p50_ms": 0.0819,
       "p95_ms": 0.1571
-    }
+    },
+    "dataset_hash": "5a78d57decd3092f637f0772604e9cf77ada84321bfea4e8bcd6b0eabb765e32",
+    "policy_hash": "6d9c7ed2cd06f356568c05949348bbf84c8145d190f50c16a23948d735c2f1c0"
   },
   "candidate": {
-    "assistant_version": "bot-eval-lab-1.0.0/rules-1.0",
-    "evaluator_version": "checks-1.0",
-    "dataset_hash": "5a78d57decd3092f637f0772604e9cf77ada84321bfea4e8bcd6b0eabb765e32",
-    "policy_hash": "6d9c7ed2cd06f356568c05949348bbf84c8145d190f50c16a23948d735c2f1c0",
     "id": "25e566856d264791a8b58c651939d5f8",
     "created_at": "2026-11-17T02:38:07.944266+00:00",
+    "assistant_version": "bot-eval-lab-1.0.0/rules-1.0",
+    "evaluator_version": "checks-1.0",
     "config": {
+      "strategy": "lexical-buggy",
       "ranking": "overlap-idf-title2-v1",
+      "index_filter": "exclude_partner",
       "top_k": 4,
       "warmup": "one fixed delivery question",
       "environment": {
         "python": "3.14.10",
         "platform": "Windows-11-10.0.26200-SP0",
         "packages": {}
-      },
-      "strategy": "lexical-buggy",
-      "index_filter": "exclude_partner"
+      }
     },
     "metrics": {
       "passed": {
@@ -95,12 +93,12 @@
         "answer": {
           "passed": 6,
           "total": 6,
-          "rate": 1
+          "rate": 1.0
         },
         "clarify": {
           "passed": 6,
           "total": 6,
-          "rate": 1
+          "rate": 1.0
         },
         "handoff": {
           "passed": 4,
@@ -121,7 +119,9 @@
       "critical_failures": 2,
       "p50_ms": 0.0537,
       "p95_ms": 0.0824
-    }
+    },
+    "dataset_hash": "5a78d57decd3092f637f0772604e9cf77ada84321bfea4e8bcd6b0eabb765e32",
+    "policy_hash": "6d9c7ed2cd06f356568c05949348bbf84c8145d190f50c16a23948d735c2f1c0"
   },
   "counts": {
     "regressions": 2,
