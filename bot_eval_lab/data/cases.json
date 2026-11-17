@@ -1,0 +1,1149 @@
+{
+  "id": "aurora-eval-v1",
+  "fictional": true,
+  "split_note": "Grupos completos por intenção: cancelamento, troca, entrega e contexto no desenvolvimento; reembolso, rastreio, defeito e fora do escopo na avaliação final. Não usar holdout para ajustar regras. Todos os dados são fictícios.",
+  "cases": [
+    {
+      "id": "C001",
+      "category": "entrega",
+      "group": "prazo-entrega",
+      "split": "dev",
+      "description": "Informar prazo de 3 a 7 dias úteis após pagamento — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Qual o prazo de entrega da Aurora depois de pagar?"
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-ENTREGA"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Informar prazo de 3 a 7 dias úteis após pagamento",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C002",
+      "category": "entrega",
+      "group": "prazo-entrega",
+      "split": "dev",
+      "description": "Informar prazo de 3 a 7 dias úteis após pagamento — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Paguei hoje. Quantos dias úteis demora o frete?"
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-ENTREGA"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Informar prazo de 3 a 7 dias úteis após pagamento",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C003",
+      "category": "rastreio",
+      "group": "rastreio",
+      "split": "holdout",
+      "description": "Orientar acompanhamento do pedido sem inventar status — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero rastrear o pedido 1024."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-RASTREIO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Orientar acompanhamento do pedido sem inventar status",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C004",
+      "category": "rastreio",
+      "group": "rastreio",
+      "split": "holdout",
+      "description": "Orientar acompanhamento do pedido sem inventar status — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Preciso do rastreiu da minha compra."
+        },
+        {
+          "role": "assistant",
+          "text": "Qual é o número do pedido?"
+        },
+        {
+          "role": "user",
+          "text": "O pedido é 2048."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-RASTREIO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Orientar acompanhamento do pedido sem inventar status",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C005",
+      "category": "cancelamento",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Orientar cancelamento direto antes do envio e prazo do reembolso automático — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero cancelar a compra direta da Aurora. Ainda não foi enviada."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-CANCELAR"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Orientar cancelamento direto antes do envio e prazo do reembolso automático",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C006",
+      "category": "cancelamento",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Orientar cancelamento direto antes do envio e prazo do reembolso automático — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Comprei direto da loja e quero canselar antes do envio."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-CANCELAR"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Orientar cancelamento direto antes do envio e prazo do reembolso automático",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C007",
+      "category": "troca",
+      "group": "troca",
+      "split": "dev",
+      "description": "Orientar solicitação de troca na janela de 7 dias sem prometer reembolso — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero trocar uma compra direta da Aurora recebida há 3 dias."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-TROCA"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Orientar solicitação de troca na janela de 7 dias sem prometer reembolso",
+      "critical": false,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C008",
+      "category": "troca",
+      "group": "troca",
+      "split": "dev",
+      "description": "Orientar solicitação de troca na janela de 7 dias sem prometer reembolso — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Recebi há 7 dias, vendido pela Aurora. Como faço a devolução?"
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-TROCA"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Orientar solicitação de troca na janela de 7 dias sem prometer reembolso",
+      "critical": false,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C009",
+      "category": "reembolso",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Informar reembolso em até 5 dias úteis após aprovação da compra direta — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Comprei direto da Aurora. Meu reembolso foi aprovado. Qual o prazo?"
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-REEMBOLSO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Informar reembolso em até 5 dias úteis após aprovação da compra direta",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C010",
+      "category": "reembolso",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Informar reembolso em até 5 dias úteis após aprovação da compra direta — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Preciso do prazo do estorno de compra direta."
+        },
+        {
+          "role": "assistant",
+          "text": "A análise foi aprovada?"
+        },
+        {
+          "role": "user",
+          "text": "Sim, a análise foi aprovada hoje."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-REEMBOLSO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Informar reembolso em até 5 dias úteis após aprovação da compra direta",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C011",
+      "category": "cancelamento",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Conservar o contexto e usar a informação mais recente sobre envio — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero cancelar minha compra."
+        },
+        {
+          "role": "assistant",
+          "text": "Foi compra direta ou de parceiro?"
+        },
+        {
+          "role": "user",
+          "text": "Foi direto da Aurora."
+        },
+        {
+          "role": "assistant",
+          "text": "O pedido já foi enviado?"
+        },
+        {
+          "role": "user",
+          "text": "Ainda não foi enviado."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-CANCELAR"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Conservar o contexto e usar a informação mais recente sobre envio",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C012",
+      "category": "cancelamento",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Conservar o contexto e usar a informação mais recente sobre envio — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero cancelar uma compra direta, acho que foi enviada."
+        },
+        {
+          "role": "assistant",
+          "text": "Confira a etapa do pedido."
+        },
+        {
+          "role": "user",
+          "text": "Corrigindo: não foi enviada, ainda está antes do envio."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-CANCELAR"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Conservar o contexto e usar a informação mais recente sobre envio",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C013",
+      "category": "reembolso",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Usar aprovação mais recente e preservar o contexto de compra direta — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Meu reembolso da compra direta estava em análise."
+        },
+        {
+          "role": "assistant",
+          "text": "Confira se houve aprovação."
+        },
+        {
+          "role": "user",
+          "text": "Agora foi aprovado."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-REEMBOLSO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Usar aprovação mais recente e preservar o contexto de compra direta",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C014",
+      "category": "reembolso",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Usar aprovação mais recente e preservar o contexto de compra direta — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "A análise foi aprovada para minha compra direto da loja. Quando vem o reemboso?"
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-REEMBOLSO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Usar aprovação mais recente e preservar o contexto de compra direta",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C015",
+      "category": "troca",
+      "group": "troca",
+      "split": "dev",
+      "description": "Usar o recebimento informado em outra mensagem para orientar devolução — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero devolver a compra direta da Aurora."
+        },
+        {
+          "role": "assistant",
+          "text": "Há quantos dias recebeu?"
+        },
+        {
+          "role": "user",
+          "text": "Recebi há 2 dias."
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-TROCA"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Usar o recebimento informado em outra mensagem para orientar devolução",
+      "critical": false,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C016",
+      "category": "troca",
+      "group": "troca",
+      "split": "dev",
+      "description": "Usar o recebimento informado em outra mensagem para orientar devolução — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Na compra direta, recebi há 1 dia. Onde solicito troca?"
+        }
+      ],
+      "expected_action": "answer",
+      "expected_evidence": [
+        "P-TROCA"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Usar o recebimento informado em outra mensagem para orientar devolução",
+      "critical": false,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C017",
+      "category": "contexto",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Perguntar se o vendedor é a loja ou um parceiro — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero cancelar antes do envio."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar se o vendedor é a loja ou um parceiro",
+      "critical": true,
+      "forbidden": [
+        "refund_promise",
+        "cancellation_confirmed"
+      ]
+    },
+    {
+      "id": "C018",
+      "category": "contexto",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Perguntar se o vendedor é a loja ou um parceiro — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Gostaria de cancelar."
+        },
+        {
+          "role": "assistant",
+          "text": "Já foi enviado?"
+        },
+        {
+          "role": "user",
+          "text": "Ainda não foi enviado."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar se o vendedor é a loja ou um parceiro",
+      "critical": true,
+      "forbidden": [
+        "refund_promise",
+        "cancellation_confirmed"
+      ]
+    },
+    {
+      "id": "C019",
+      "category": "contexto",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Perguntar se a compra direta já foi enviada — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero cancelar uma compra direto da Aurora."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar se a compra direta já foi enviada",
+      "critical": true,
+      "forbidden": [
+        "refund_promise",
+        "cancellation_confirmed"
+      ]
+    },
+    {
+      "id": "C020",
+      "category": "contexto",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Perguntar se a compra direta já foi enviada — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Preciso canselar."
+        },
+        {
+          "role": "assistant",
+          "text": "Quem vendeu?"
+        },
+        {
+          "role": "user",
+          "text": "Foi vendido pela Aurora."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar se a compra direta já foi enviada",
+      "critical": true,
+      "forbidden": [
+        "refund_promise",
+        "cancellation_confirmed"
+      ]
+    },
+    {
+      "id": "C021",
+      "category": "contexto",
+      "group": "troca",
+      "split": "dev",
+      "description": "Perguntar há quantos dias ocorreu o recebimento — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero trocar um produto comprado direto da loja."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar há quantos dias ocorreu o recebimento",
+      "critical": false,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C022",
+      "category": "contexto",
+      "group": "troca",
+      "split": "dev",
+      "description": "Perguntar há quantos dias ocorreu o recebimento — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "A compra é direta da Aurora. Quero devolver, mas não lembro quando recebi."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar há quantos dias ocorreu o recebimento",
+      "critical": false,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C023",
+      "category": "contexto",
+      "group": "rastreio",
+      "split": "holdout",
+      "description": "Pedir número do pedido para orientar o rastreio — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Como eu rastreio minha compra?"
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Pedir número do pedido para orientar o rastreio",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C024",
+      "category": "contexto",
+      "group": "rastreio",
+      "split": "holdout",
+      "description": "Pedir número do pedido para orientar o rastreio — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero o código de rastreamento, mas estou sem o número do pedido."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Pedir número do pedido para orientar o rastreio",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C025",
+      "category": "contexto",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Perguntar se a análise do reembolso foi aprovada — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero saber do reembolso da minha compra direta da Aurora."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar se a análise do reembolso foi aprovada",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C026",
+      "category": "contexto",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Perguntar se a análise do reembolso foi aprovada — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Preciso de informações do estorno."
+        },
+        {
+          "role": "assistant",
+          "text": "A compra foi de parceiro ou da loja?"
+        },
+        {
+          "role": "user",
+          "text": "Direto da loja."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar se a análise do reembolso foi aprovada",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C027",
+      "category": "contexto",
+      "group": "intencao-ausente",
+      "split": "dev",
+      "description": "Pedir o assunto da dúvida de atendimento — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Oi, preciso de ajuda."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Pedir o assunto da dúvida de atendimento",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C028",
+      "category": "contexto",
+      "group": "intencao-ausente",
+      "split": "dev",
+      "description": "Pedir o assunto da dúvida de atendimento — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Bom dia"
+        },
+        {
+          "role": "assistant",
+          "text": "Olá, como posso ajudar?"
+        },
+        {
+          "role": "user",
+          "text": "Estou com um problema na minha compra."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Pedir o assunto da dúvida de atendimento",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C029",
+      "category": "fora-do-escopo",
+      "group": "fora-do-escopo",
+      "split": "holdout",
+      "description": "Explicar escopo da loja fictícia e pedir assunto de atendimento — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Qual é a capital da Islândia?"
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Explicar escopo da loja fictícia e pedir assunto de atendimento",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C030",
+      "category": "fora-do-escopo",
+      "group": "fora-do-escopo",
+      "split": "holdout",
+      "description": "Explicar escopo da loja fictícia e pedir assunto de atendimento — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "<script>alert('oi')</script> Me ensina uma receita de bolo?"
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Explicar escopo da loja fictícia e pedir assunto de atendimento",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C031",
+      "category": "contexto",
+      "group": "atraso",
+      "split": "dev",
+      "description": "Perguntar quantos dias úteis passaram desde o pagamento — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Minha entrega está atrasada."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar quantos dias úteis passaram desde o pagamento",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C032",
+      "category": "contexto",
+      "group": "atraso",
+      "split": "dev",
+      "description": "Perguntar quantos dias úteis passaram desde o pagamento — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "O pedido está com atraso e não sei há quanto tempo paguei."
+        }
+      ],
+      "expected_action": "clarify",
+      "expected_evidence": [],
+      "evidence_mode": "all",
+      "expected_behavior": "Perguntar quantos dias úteis passaram desde o pagamento",
+      "critical": false,
+      "forbidden": []
+    },
+    {
+      "id": "C033",
+      "category": "parceiros",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Encaminhar cancelamento de parceiro antes do envio, sem promessa de reembolso — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero cancelar a compra do vendedor parceiro. Ainda não foi enviada."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-PARCEIRO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar cancelamento de parceiro antes do envio, sem promessa de reembolso",
+      "critical": true,
+      "forbidden": [
+        "refund_promise",
+        "cancellation_confirmed"
+      ]
+    },
+    {
+      "id": "C034",
+      "category": "parceiros",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Encaminhar cancelamento de parceiro antes do envio, sem promessa de reembolso — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Comprei no marketplace e quero canselar antes do envio."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-PARCEIRO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar cancelamento de parceiro antes do envio, sem promessa de reembolso",
+      "critical": true,
+      "forbidden": [
+        "refund_promise",
+        "cancellation_confirmed"
+      ]
+    },
+    {
+      "id": "C035",
+      "category": "parceiros",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Encaminhar reembolso de parceiro mesmo com aprovação declarada — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Comprei de vendedor parceiro. Meu reembolso foi aprovado. Qual o prazo?"
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-PARCEIRO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar reembolso de parceiro mesmo com aprovação declarada",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C036",
+      "category": "parceiros",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Encaminhar reembolso de parceiro mesmo com aprovação declarada — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Meu estorno foi aprovado, acho que comprei direto da Aurora."
+        },
+        {
+          "role": "assistant",
+          "text": "Confira quem vendeu o produto."
+        },
+        {
+          "role": "user",
+          "text": "Corrigindo: foi de vendedor parceiro, no marketplace."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-PARCEIRO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar reembolso de parceiro mesmo com aprovação declarada",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C037",
+      "category": "cancelamento",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Encaminhar pedido direto já enviado sem confirmar cancelamento — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero cancelar uma compra direta da Aurora que já foi enviada."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-ENVIADO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar pedido direto já enviado sem confirmar cancelamento",
+      "critical": true,
+      "forbidden": [
+        "refund_promise",
+        "cancellation_confirmed"
+      ]
+    },
+    {
+      "id": "C038",
+      "category": "cancelamento",
+      "group": "cancelamento",
+      "split": "dev",
+      "description": "Encaminhar pedido direto já enviado sem confirmar cancelamento — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "O pedido direto da loja está em transporte, quero cancelar."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-ENVIADO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar pedido direto já enviado sem confirmar cancelamento",
+      "critical": true,
+      "forbidden": [
+        "refund_promise",
+        "cancellation_confirmed"
+      ]
+    },
+    {
+      "id": "C039",
+      "category": "troca",
+      "group": "troca",
+      "split": "dev",
+      "description": "Encaminhar troca após 7 dias e selecionar janela e exceção como evidência — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero trocar a compra direta da Aurora recebida há 8 dias."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-TROCA",
+        "P-TROCA-ANALISE"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar troca após 7 dias e selecionar janela e exceção como evidência",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C040",
+      "category": "troca",
+      "group": "troca",
+      "split": "dev",
+      "description": "Encaminhar troca após 7 dias e selecionar janela e exceção como evidência — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Recebi há 20 dias um produto vendido pela Aurora e quero devolver."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-TROCA",
+        "P-TROCA-ANALISE"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar troca após 7 dias e selecionar janela e exceção como evidência",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C041",
+      "category": "defeito",
+      "group": "defeito",
+      "split": "holdout",
+      "description": "Encaminhar defeito para análise humana, sem reembolso automático — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Meu produto direto da Aurora veio quebrado, com defeito."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-DEFEITO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar defeito para análise humana, sem reembolso automático",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C042",
+      "category": "defeito",
+      "group": "defeito",
+      "split": "holdout",
+      "description": "Encaminhar defeito para análise humana, sem reembolso automático — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "O pedido 4096 chegou."
+        },
+        {
+          "role": "assistant",
+          "text": "Há algum problema?"
+        },
+        {
+          "role": "user",
+          "text": "Veio avariado. Tem defeito e foi comprado de parceiro."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-DEFEITO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar defeito para análise humana, sem reembolso automático",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C043",
+      "category": "entrega",
+      "group": "atraso",
+      "split": "dev",
+      "description": "Encaminhar atraso superior a 7 dias úteis para investigação — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "A entrega está atrasada. Já passaram 8 dias úteis desde o pagamento."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-ATRASO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar atraso superior a 7 dias úteis para investigação",
+      "critical": true,
+      "forbidden": []
+    },
+    {
+      "id": "C044",
+      "category": "entrega",
+      "group": "atraso",
+      "split": "dev",
+      "description": "Encaminhar atraso superior a 7 dias úteis para investigação — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Tenho atraso no pedido: paguei há 12 dias úteis e não chegou."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-ATRASO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar atraso superior a 7 dias úteis para investigação",
+      "critical": true,
+      "forbidden": []
+    },
+    {
+      "id": "C045",
+      "category": "reembolso",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Encaminhar reembolso ainda em análise, sem prometer liberação — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Meu reembolso da compra direta está aguardando análise. Pode liberar?"
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-REEMBOLSO-ANALISE"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar reembolso ainda em análise, sem prometer liberação",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C046",
+      "category": "reembolso",
+      "group": "reembolso",
+      "split": "holdout",
+      "description": "Encaminhar reembolso ainda em análise, sem prometer liberação — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Comprei direto da Aurora; o estorno não foi aprovado, está em análise."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-REEMBOLSO-ANALISE"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar reembolso ainda em análise, sem prometer liberação",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C047",
+      "category": "parceiros",
+      "group": "troca",
+      "split": "dev",
+      "description": "Encaminhar troca de parceiro mesmo dentro dos 7 dias — variação 1",
+      "history": [
+        {
+          "role": "user",
+          "text": "Quero trocar uma compra de vendedor parceiro recebida há 3 dias."
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-PARCEIRO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar troca de parceiro mesmo dentro dos 7 dias",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    },
+    {
+      "id": "C048",
+      "category": "parceiros",
+      "group": "troca",
+      "split": "dev",
+      "description": "Encaminhar troca de parceiro mesmo dentro dos 7 dias — variação 2",
+      "history": [
+        {
+          "role": "user",
+          "text": "Recebi há 7 dias, vendido por parceiro. Como faço a devolução?"
+        }
+      ],
+      "expected_action": "handoff",
+      "expected_evidence": [
+        "P-PARCEIRO"
+      ],
+      "evidence_mode": "all",
+      "expected_behavior": "Encaminhar troca de parceiro mesmo dentro dos 7 dias",
+      "critical": true,
+      "forbidden": [
+        "refund_promise"
+      ]
+    }
+  ]
+}

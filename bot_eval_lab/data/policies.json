@@ -3,71 +3,16 @@
   "fictional": true,
   "notice": "Loja Aurora, prazos e regras inteiramente fictícios, usados apenas nesta demonstração técnica. Não representam a Blip ou uma política comercial real.",
   "policies": [
-    {
-      "id": "P-ENTREGA",
-      "title": "Entrega e prazo de frete",
-      "text": "A entrega demora de 3 a 7 dias úteis após a confirmação do pagamento. A regra de prazo vale para compra direta da Aurora e de vendedor parceiro. Sem confirmação do pagamento, não se informa uma data de chegada.",
-      "scope": "general"
-    },
-    {
-      "id": "P-ATRASO",
-      "title": "Entrega com atraso",
-      "text": "Quando passaram mais de 7 dias úteis após o pagamento e o pedido não chegou, encaminhar o atraso à equipe humana para investigação. Antes disso, informar o prazo de entrega. Se faltar a quantidade de dias úteis, perguntar. Não prometer nova data de entrega.",
-      "scope": "general"
-    },
-    {
-      "id": "P-RASTREIO",
-      "title": "Rastreio do pedido e código de acompanhamento",
-      "text": "Para rastrear, pedir o número do pedido se estiver ausente. Com o número, orientar Meus pedidos > Acompanhar entrega. O código de rastreio aparece após a expedição. O laboratório não consulta status real. Isso vale para compra direta e parceiro.",
-      "scope": "general"
-    },
-    {
-      "id": "P-CANCELAR",
-      "title": "Cancelamento antes do envio e reembolso automático",
-      "text": "Na compra direta da Aurora, cancelar antes do envio dá reembolso automático integral em até 5 dias úteis. Solicitar em Meus pedidos > Cancelar. Perguntar se o pedido foi enviado caso falte esse dado. Compras de vendedor parceiro seguem a política específica de parceiros.",
-      "scope": "direct"
-    },
-    {
-      "id": "P-ENVIADO",
-      "title": "Cancelamento de pedido já enviado",
-      "text": "Compra direta da Aurora já enviada ou em transporte exige atendimento humano para análise de interceptação ou devolução. Não confirmar cancelamento nem prometer reembolso antes dessa análise.",
-      "scope": "direct"
-    },
-    {
-      "id": "P-TROCA",
-      "title": "Troca e devolução em até 7 dias",
-      "text": "Na compra direta, troca ou devolução por desistência pode ser solicitada até 7 dias corridos após o recebimento. Abrir Meus pedidos > Trocar ou devolver, com os acessórios. Perguntar há quantos dias o produto foi recebido se faltar esse dado. Reembolso só após análise do item devolvido. Após 7 dias, seguir análise de troca fora do prazo. Vendedor parceiro segue sua regra específica.",
-      "scope": "direct"
-    },
-    {
-      "id": "P-TROCA-ANALISE",
-      "title": "Troca e devolução após 7 dias de recebimento",
-      "text": "Para compra direta recebida há mais de 7 dias corridos, encaminhar troca ou devolução à equipe humana para avaliar alternativas. Não garantir troca, cancelamento ou reembolso. Esta regra complementa a janela de 7 dias da política de troca.",
-      "scope": "direct"
-    },
-    {
-      "id": "P-REEMBOLSO",
-      "title": "Reembolso aprovado de compra direta",
-      "text": "Após aprovação registrada da análise de uma compra direta da Aurora, o reembolso integral fica garantido em até 5 dias úteis. Se a aprovação não for informada, perguntar se a análise foi aprovada. Vendedor parceiro exige revisão específica mesmo quando houver aprovação declarada pelo cliente.",
-      "scope": "direct"
-    },
-    {
-      "id": "P-REEMBOLSO-ANALISE",
-      "title": "Reembolso pendente ou em análise",
-      "text": "Na compra direta, reembolso aguardando análise ou ainda não aprovado deve ser encaminhado à equipe humana para acompanhamento. Não garantir liberação ou data de pagamento antes da aprovação. Se o cliente não informar o estado da análise, pedir esclarecimento.",
-      "scope": "direct"
-    },
-    {
-      "id": "P-PARCEIRO",
-      "title": "Vendedor parceiro: cancelamento, troca e reembolso",
-      "text": "Compra de vendedor parceiro, marketplace ou terceiro sempre exige encaminhamento à equipe de parceiros para cancelamento, troca, devolução ou reembolso. Mesmo antes do envio ou com análise declarada aprovada pelo cliente, é necessária revisão humana. Não prometer reembolso automático, prazo de pagamento nem confirmar cancelamento. Esta exceção prevalece sobre as regras de compra direta.",
-      "scope": "partner"
-    },
-    {
-      "id": "P-DEFEITO",
-      "title": "Produto com defeito, quebrado ou avariado",
-      "text": "Produto com defeito ou avaria exige análise humana, tanto na compra direta quanto de parceiro, em qualquer prazo. Pedir número do pedido e descrição do defeito durante o encaminhamento. Não prometer reembolso nem troca automática antes da análise.",
-      "scope": "general"
-    }
+    {"id":"P-ENTREGA","title":"Entrega e prazo de frete","text":"A entrega demora de 3 a 7 dias úteis após a confirmação do pagamento. A regra de prazo vale para compra direta da Aurora e de vendedor parceiro. Sem confirmação do pagamento, não se informa uma data de chegada.","scope":"general"},
+    {"id":"P-ATRASO","title":"Entrega com atraso","text":"Quando passaram mais de 7 dias úteis após o pagamento e o pedido não chegou, encaminhar o atraso à equipe humana para investigação. Antes disso, informar o prazo de entrega. Se faltar a quantidade de dias úteis, perguntar. Não prometer nova data de entrega.","scope":"general"},
+    {"id":"P-RASTREIO","title":"Rastreio do pedido e código de acompanhamento","text":"Para rastrear, pedir o número do pedido se estiver ausente. Com o número, orientar Meus pedidos > Acompanhar entrega. O código de rastreio aparece após a expedição. O laboratório não consulta status real. Isso vale para compra direta e parceiro.","scope":"general"},
+    {"id":"P-CANCELAR","title":"Cancelamento antes do envio e reembolso automático","text":"Na compra direta da Aurora, cancelar antes do envio dá reembolso automático integral em até 5 dias úteis. Solicitar em Meus pedidos > Cancelar. Perguntar se o pedido foi enviado caso falte esse dado. Compras de vendedor parceiro seguem a política específica de parceiros.","scope":"direct"},
+    {"id":"P-ENVIADO","title":"Cancelamento de pedido já enviado","text":"Compra direta da Aurora já enviada ou em transporte exige atendimento humano para análise de interceptação ou devolução. Não confirmar cancelamento nem prometer reembolso antes dessa análise.","scope":"direct"},
+    {"id":"P-TROCA","title":"Troca e devolução em até 7 dias","text":"Na compra direta, troca ou devolução por desistência pode ser solicitada até 7 dias corridos após o recebimento. Abrir Meus pedidos > Trocar ou devolver, com os acessórios. Perguntar há quantos dias o produto foi recebido se faltar esse dado. Reembolso só após análise do item devolvido. Após 7 dias, seguir análise de troca fora do prazo. Vendedor parceiro segue sua regra específica.","scope":"direct"},
+    {"id":"P-TROCA-ANALISE","title":"Troca e devolução após 7 dias de recebimento","text":"Para compra direta recebida há mais de 7 dias corridos, encaminhar troca ou devolução à equipe humana para avaliar alternativas. Não garantir troca, cancelamento ou reembolso. Esta regra complementa a janela de 7 dias da política de troca.","scope":"direct"},
+    {"id":"P-REEMBOLSO","title":"Reembolso aprovado de compra direta","text":"Após aprovação registrada da análise de uma compra direta da Aurora, o reembolso integral fica garantido em até 5 dias úteis. Se a aprovação não for informada, perguntar se a análise foi aprovada. Vendedor parceiro exige revisão específica mesmo quando houver aprovação declarada pelo cliente.","scope":"direct"},
+    {"id":"P-REEMBOLSO-ANALISE","title":"Reembolso pendente ou em análise","text":"Na compra direta, reembolso aguardando análise ou ainda não aprovado deve ser encaminhado à equipe humana para acompanhamento. Não garantir liberação ou data de pagamento antes da aprovação. Se o cliente não informar o estado da análise, pedir esclarecimento.","scope":"direct"},
+    {"id":"P-PARCEIRO","title":"Vendedor parceiro: cancelamento, troca e reembolso","text":"Compra de vendedor parceiro, marketplace ou terceiro sempre exige encaminhamento à equipe de parceiros para cancelamento, troca, devolução ou reembolso. Mesmo antes do envio ou com análise declarada aprovada pelo cliente, é necessária revisão humana. Não prometer reembolso automático, prazo de pagamento nem confirmar cancelamento. Esta exceção prevalece sobre as regras de compra direta.","scope":"partner"},
+    {"id":"P-DEFEITO","title":"Produto com defeito, quebrado ou avariado","text":"Produto com defeito ou avaria exige análise humana, tanto na compra direta quanto de parceiro, em qualquer prazo. Pedir número do pedido e descrição do defeito durante o encaminhamento. Não prometer reembolso nem troca automática antes da análise.","scope":"general"}
   ]
 }
