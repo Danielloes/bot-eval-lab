@@ -1,0 +1,192 @@
+{
+  "reference": {
+    "assistant_version": "bot-eval-lab-1.0.0/rules-1.0",
+    "evaluator_version": "checks-1.0",
+    "dataset_hash": "5a78d57decd3092f637f0772604e9cf77ada84321bfea4e8bcd6b0eabb765e32",
+    "policy_hash": "6d9c7ed2cd06f356568c05949348bbf84c8145d190f50c16a23948d735c2f1c0",
+    "id": "50b34de598f94b859e02592dd26c4bcd",
+    "created_at": "2026-11-17T02:38:07.757979+00:00",
+    "config": {
+      "ranking": "overlap-idf-title2-v1",
+      "top_k": 4,
+      "warmup": "one fixed delivery question",
+      "environment": {
+        "python": "3.14.10",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "packages": {}
+      },
+      "strategy": "lexical",
+      "index_filter": "all"
+    },
+    "metrics": {
+      "passed": {
+        "passed": 18,
+        "total": 18,
+        "rate": 1
+      },
+      "action": {
+        "passed": 18,
+        "total": 18,
+        "rate": 1
+      },
+      "by_action": {
+        "answer": {
+          "passed": 6,
+          "total": 6,
+          "rate": 1
+        },
+        "clarify": {
+          "passed": 6,
+          "total": 6,
+          "rate": 1
+        },
+        "handoff": {
+          "passed": 6,
+          "total": 6,
+          "rate": 1
+        }
+      },
+      "evidence_retrieved": {
+        "passed": 12,
+        "total": 12,
+        "rate": 1
+      },
+      "evidence_used": {
+        "passed": 12,
+        "total": 12,
+        "rate": 1
+      },
+      "critical_failures": 0,
+      "p50_ms": 0.0819,
+      "p95_ms": 0.1571
+    }
+  },
+  "candidate": {
+    "assistant_version": "bot-eval-lab-1.0.0/rules-1.0",
+    "evaluator_version": "checks-1.0",
+    "dataset_hash": "5a78d57decd3092f637f0772604e9cf77ada84321bfea4e8bcd6b0eabb765e32",
+    "policy_hash": "6d9c7ed2cd06f356568c05949348bbf84c8145d190f50c16a23948d735c2f1c0",
+    "id": "25e566856d264791a8b58c651939d5f8",
+    "created_at": "2026-11-17T02:38:07.944266+00:00",
+    "config": {
+      "ranking": "overlap-idf-title2-v1",
+      "top_k": 4,
+      "warmup": "one fixed delivery question",
+      "environment": {
+        "python": "3.14.10",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "packages": {}
+      },
+      "strategy": "lexical-buggy",
+      "index_filter": "exclude_partner"
+    },
+    "metrics": {
+      "passed": {
+        "passed": 16,
+        "total": 18,
+        "rate": 0.8888888888888888
+      },
+      "action": {
+        "passed": 16,
+        "total": 18,
+        "rate": 0.8888888888888888
+      },
+      "by_action": {
+        "answer": {
+          "passed": 6,
+          "total": 6,
+          "rate": 1
+        },
+        "clarify": {
+          "passed": 6,
+          "total": 6,
+          "rate": 1
+        },
+        "handoff": {
+          "passed": 4,
+          "total": 6,
+          "rate": 0.6666666666666666
+        }
+      },
+      "evidence_retrieved": {
+        "passed": 10,
+        "total": 12,
+        "rate": 0.8333333333333334
+      },
+      "evidence_used": {
+        "passed": 10,
+        "total": 12,
+        "rate": 0.8333333333333334
+      },
+      "critical_failures": 2,
+      "p50_ms": 0.0537,
+      "p95_ms": 0.0824
+    }
+  },
+  "counts": {
+    "regressions": 2,
+    "critical_regressions": 2,
+    "improvements": 0,
+    "both_fail": 0
+  },
+  "changed_cases": [
+    {
+      "id": "C035",
+      "status": "regression",
+      "critical": true,
+      "reference_checks": {
+        "passed": true,
+        "action_ok": true,
+        "evidence_ok": true,
+        "retrieved_evidence_ok": true,
+        "behavior_ok": true,
+        "violations": [],
+        "failure_reasons": []
+      },
+      "candidate_checks": {
+        "passed": false,
+        "action_ok": false,
+        "evidence_ok": false,
+        "retrieved_evidence_ok": false,
+        "behavior_ok": false,
+        "violations": [
+          "refund_promise"
+        ],
+        "failure_reasons": [
+          "Ação esperada handoff; recebida answer.",
+          "Seleção da evidência usada não atende à regra do caso ou cita trecho não recuperado.",
+          "Comportamento proibido: refund_promise."
+        ]
+      }
+    },
+    {
+      "id": "C036",
+      "status": "regression",
+      "critical": true,
+      "reference_checks": {
+        "passed": true,
+        "action_ok": true,
+        "evidence_ok": true,
+        "retrieved_evidence_ok": true,
+        "behavior_ok": true,
+        "violations": [],
+        "failure_reasons": []
+      },
+      "candidate_checks": {
+        "passed": false,
+        "action_ok": false,
+        "evidence_ok": false,
+        "retrieved_evidence_ok": false,
+        "behavior_ok": false,
+        "violations": [
+          "refund_promise"
+        ],
+        "failure_reasons": [
+          "Ação esperada handoff; recebida answer.",
+          "Seleção da evidência usada não atende à regra do caso ou cita trecho não recuperado.",
+          "Comportamento proibido: refund_promise."
+        ]
+      }
+    }
+  ]
+}
